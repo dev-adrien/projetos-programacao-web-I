@@ -3,6 +3,7 @@ package com.adrien.parte4spring.controllers;
 import com.adrien.parte4spring.entities.Instrutor;
 import com.adrien.parte4spring.repositories.InstrutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class InstrutorController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Instrutor salvar(@RequestBody Instrutor instrutor) {
         return repository.save(instrutor);
     }
